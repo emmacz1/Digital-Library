@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block title %}Book Details{% endblock %}
+
+{% block content %}
+    <h1 class="mt-4">{{ book.title }}</h1>
+    <img src="../static/book_cover.jpg" width="150" height="225" alt="Book Cover">
+    <p><strong>Author:</strong> {{ book.author }}</p>
+    <p><strong>ISBN:</strong> {{ book.isbn }}</p>
+    <p><strong>Length:</strong> {{ book.length }} pages</p>
+    <p><strong>Format:</strong> {{ book.format }}</p>
+    <a href="{{ url_for('routes.update_book', id=book.id) }}" class="btn btn-primary">Edit</a>
+    <form action="{{ url_for('routes.delete_book', id=book.id) }}" method="post" style="display:inline;">
+        <input type="hidden" name="_method" value="DELETE">
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block title %}Update Book{% endblock %}
+
+{% block content %}
+    <h1 class="mt-4">Update Book</h1>
+    <form action="{{ url_for('routes.update_book', id=book.id) }}" method="post">
+        <div class="form-group">
+            <label for="isbn">ISBN</label>
+            <input type="text" class="form-control" id="isbn" name="isbn" value="{{ book.isbn }}" required>
+        </div>
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" name="title" value="{{ book.title }}" required>
+        </div>
+        <div class="form-group">
+            <label for="author">Author</label>
+            <input type="text" class="form-control" id="author" name="author" value="{{ book.author }}" required>
+        </div>
+        <div class="form-group">
+            <label for="length">Length</label>
+            <input type="number" class="form-control" id="length" name="length" value="{{ book.length }}" required>
+        </div>
+        <div class="form-group">
+            <label for="format">Format</label>
+            <input type="text" class="form-control" id="format" name="format" value="{{ book.format }}" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Update Book</button>
+    </form>
+{% endblock %}

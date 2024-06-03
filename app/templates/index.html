@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <h1 class="mt-4">Books</h1>
+    <ul class="list-group">
+        {% for book in books %}
+            <li class="list-group-item">
+                <a href="{{ url_for('routes.get_book', id=book.id) }}">{{ book.title }}</a> by {{ book.author }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
